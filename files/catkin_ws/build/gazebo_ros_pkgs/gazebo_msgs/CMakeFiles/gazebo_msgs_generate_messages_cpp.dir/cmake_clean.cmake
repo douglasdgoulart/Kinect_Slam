@@ -1,0 +1,40 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/gazebo_msgs_generate_messages_cpp"
+  "/root/catkin_ws/devel/include/gazebo_msgs/LinkState.h"
+  "/root/catkin_ws/devel/include/gazebo_msgs/WorldState.h"
+  "/root/catkin_ws/devel/include/gazebo_msgs/ODEJointProperties.h"
+  "/root/catkin_ws/devel/include/gazebo_msgs/ModelState.h"
+  "/root/catkin_ws/devel/include/gazebo_msgs/LinkStates.h"
+  "/root/catkin_ws/devel/include/gazebo_msgs/ContactState.h"
+  "/root/catkin_ws/devel/include/gazebo_msgs/ContactsState.h"
+  "/root/catkin_ws/devel/include/gazebo_msgs/ModelStates.h"
+  "/root/catkin_ws/devel/include/gazebo_msgs/ODEPhysics.h"
+  "/root/catkin_ws/devel/include/gazebo_msgs/SetLinkProperties.h"
+  "/root/catkin_ws/devel/include/gazebo_msgs/BodyRequest.h"
+  "/root/catkin_ws/devel/include/gazebo_msgs/SetJointTrajectory.h"
+  "/root/catkin_ws/devel/include/gazebo_msgs/GetModelProperties.h"
+  "/root/catkin_ws/devel/include/gazebo_msgs/SetModelConfiguration.h"
+  "/root/catkin_ws/devel/include/gazebo_msgs/ApplyJointEffort.h"
+  "/root/catkin_ws/devel/include/gazebo_msgs/GetLinkState.h"
+  "/root/catkin_ws/devel/include/gazebo_msgs/SpawnModel.h"
+  "/root/catkin_ws/devel/include/gazebo_msgs/GetWorldProperties.h"
+  "/root/catkin_ws/devel/include/gazebo_msgs/GetLightProperties.h"
+  "/root/catkin_ws/devel/include/gazebo_msgs/SetLinkState.h"
+  "/root/catkin_ws/devel/include/gazebo_msgs/SetLightProperties.h"
+  "/root/catkin_ws/devel/include/gazebo_msgs/GetJointProperties.h"
+  "/root/catkin_ws/devel/include/gazebo_msgs/GetPhysicsProperties.h"
+  "/root/catkin_ws/devel/include/gazebo_msgs/SetJointProperties.h"
+  "/root/catkin_ws/devel/include/gazebo_msgs/JointRequest.h"
+  "/root/catkin_ws/devel/include/gazebo_msgs/SetModelState.h"
+  "/root/catkin_ws/devel/include/gazebo_msgs/ApplyBodyWrench.h"
+  "/root/catkin_ws/devel/include/gazebo_msgs/GetLinkProperties.h"
+  "/root/catkin_ws/devel/include/gazebo_msgs/DeleteModel.h"
+  "/root/catkin_ws/devel/include/gazebo_msgs/SetPhysicsProperties.h"
+  "/root/catkin_ws/devel/include/gazebo_msgs/GetModelState.h"
+  "/root/catkin_ws/devel/include/gazebo_msgs/DeleteLight.h"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang )
+  include(CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

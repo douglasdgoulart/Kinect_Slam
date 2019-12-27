@@ -1,0 +1,36 @@
+# CMake generated Testfile for 
+# Source directory: /root/catkin_ws/src
+# Build directory: /root/catkin_ws/build
+# 
+# This file includes the relevant testing commands required for 
+# testing this directory and lists subdirectories to be tested as well.
+subdirs(gtest)
+subdirs(gazebo_ros_pkgs/gazebo_dev)
+subdirs(gazebo_ros_pkgs/gazebo_ros_pkgs)
+subdirs(hector_slam)
+subdirs(hector_slam_launch)
+subdirs(iai_kinect2/iai_kinect2)
+subdirs(hector_map_tools)
+subdirs(hector_nav_msgs)
+subdirs(hector_geotiff)
+subdirs(hector_geotiff_plugins)
+subdirs(hector_marker_drawing)
+subdirs(one_kinect_robot)
+subdirs(one_laser_robot)
+subdirs(gazebo_ros_pkgs/gazebo_msgs)
+subdirs(hector_compressed_map_transport)
+subdirs(iai_kinect2/kinect2_registration)
+subdirs(gazebo_ros_pkgs/gazebo_ros)
+subdirs(hector_imu_attitude_to_tf)
+subdirs(hector_imu_tools)
+subdirs(hector_map_server)
+subdirs(hector_trajectory_server)
+subdirs(iai_kinect2/kinect2_bridge)
+subdirs(iai_kinect2/kinect2_calibration)
+subdirs(iai_kinect2/kinect2_viewer)
+subdirs(ira_laser_tools)
+subdirs(slam_lidar_kinect)
+subdirs(hector_mapping)
+subdirs(two_laser_robot)
+subdirs(gazebo_ros_pkgs/gazebo_plugins)
+subdirs(gazebo_ros_pkgs/gazebo_ros_control)
