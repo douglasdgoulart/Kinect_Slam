@@ -1,0 +1,8 @@
+prefix=/root/catkin_ws/install
+
+Name: slam_lidar_kinect
+Description: Description of slam_lidar_kinect
+Version: 0.0.0
+Cflags: -I/root/catkin_ws/install/include
+Libs: -L/root/catkin_ws/install/lib 
+Requires: 
