@@ -45,7 +45,7 @@ docker-spawn-one-kinect:
                $(DOCKER_TAG) \
                xterm -e "source /root/catkin_ws/devel/setup.bash && roslaunch one_kinect_robot spawn.launch"
 
-docker-ros-env:
+docker-ros-env-comm:
 	xhost +local:docker
 	docker run -it --rm \
                $(DOCKER-PARAMS) \
@@ -55,6 +55,14 @@ docker-ros-env:
                $(DOCKER_TAG) \
                xterm -e "source /root/catkin_ws/devel/setup.bash && $(DOCKER_COMMAND)"
 
+docker-ros-env:
+	xhost +local:docker
+	docker run -it --rm \
+               $(DOCKER-PARAMS) \
+               --name env_$(RANDOM) \
+               --env ROS_HOSTNAME=env_$(RANDOM) \
+               $(ROS_MATER_HTTP) \
+               $(DOCKER_TAG)
 
 docker-gazebo-run:
 	xhost +local:docker & \
@@ -62,6 +70,7 @@ docker-gazebo-run:
                $(DOCKER-PARAMS) \
                --name gazebo_dock \
                --env ROS_HOSTNAME=gazebo_dock \
+               --cpus=1 \
                $(ROS_MATER_HTTP) \
                $(DOCKER_TAG) \
                roslaunch --wait gazebo_ros willowgarage_world.launch pause:=false
@@ -78,4 +87,3 @@ docker-keyboard-run:
 
 docker-pull-catkin_ws:
     docker cp files/ $(DOCKER_NAME):/root/ 
-

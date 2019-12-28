@@ -89,4 +89,5 @@ RUN apt-get update -y && \
 
 #Get local catkin packages
 COPY files/ /root/
-    
+
+RUN chmod +x ~/catkin_ws/src/wall_follower/scripts/wall_follower.py

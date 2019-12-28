@@ -11,6 +11,7 @@ done
 
 rm gazebo.out
 xterm -title "Spawn Robot" -e "make docker-spawn-one-kinect" &
-xterm -title "Point Cloud to Laser" -e "make docker-ros-env DOCKER_COMMAND:=\"roslaunch --wait one_kinect_robot pc2laser.launch\""&
-xterm -title "Gmmaping" -e "make docker-ros-env DOCKER_COMMAND:=\"roslaunch --wait one_kinect_robot gmmaping.launch\""&
-xterm -title "Keyboard Controller" -e "make docker-keyboard-run"&
+xterm -title "Point Cloud to Laser" -e "make docker-ros-env-comm DOCKER_COMMAND:=\"roslaunch --wait one_kinect_robot pc2laser.launch\""&
+xterm -title "Gmmaping" -e "make docker-ros-env-comm DOCKER_COMMAND:=\"roslaunch --wait one_kinect_robot gmmaping.launch\""&
+# xterm -title "Keyboard Controller" -e "make docker-keyboard-run"&
+xterm -title "Wall Follower" -e "make docker-ros-env-comm DOCKER_COMMAND:=\"rosrun wall_follower wall_follower.py\""&

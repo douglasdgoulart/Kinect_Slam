@@ -43,7 +43,7 @@
 
           </depth_camera>
           <clip>
-              <near>0.1</near>
+              <near>0.01</near>
               <far>100</far>
           </clip>
       </camera>
@@ -58,7 +58,7 @@
           <pointCloudTopicName>depth/points</pointCloudTopicName>
           <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
           <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>
-          <pointCloudCutoff>0.4</pointCloudCutoff>
+          <pointCloudCutoff>0.01</pointCloudCutoff>
               <hackBaseline>0.07</hackBaseline>
               <distortionK1>0.0</distortionK1>
               <distortionK2>0.0</distortionK2>

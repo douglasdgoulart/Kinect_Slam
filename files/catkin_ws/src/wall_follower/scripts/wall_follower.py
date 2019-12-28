@@ -9,14 +9,61 @@ from tf import transformations
 
 import math
 
+class Robot_regions:
+    def __init__(self,max_distance_value = 10):
+        self.scan_regions_min_distance = {'right': 10,'front': 10,'left': 10}
+        self.all_distances = []
+        self.distances_initial_index = {'right': 0,'front': 0,'left': 0}
+        self.distances_final_index = {'right': 0, 'front': 0, 'left': 0}
+        self.max_distance_value = 10
+
+    def compare_values(self, old, new):
+        if new == 10:
+            return old
+        return new
+
+    def get_minimum_distance(self,distances):
+        minimum_distance = min(min(distances),self.max_distance_value)
+        return compare_values(minimum_distance)
+
+    def get_msg_parameters(self,msg):
+        self.all_distances = msg.ranges
+        distance_scan_size  = len(all_distances)
+        self.distances_initial_index = {
+            'right': 0,
+            'front': int(distance_scan_size/3+1),
+            'left':  int(2*distance_scan_size/3+1)}
+        self.distances_final_index = {
+            'right': int(distance_scan_size/3),
+            'front': int(2*distance_scan_size/3),
+            'left':  int(3*distance_scan_size/3)}
+
+    def update_regions(self):
+        for region in self.scan_regions_min_distance:
+            initial_region_index = distances_initial_index[region]
+            final_region_index = distances_final_index[region]
+
+            region_distances = self.scan_regions_min_distance[initial_region_index:final_region_index]
+            self.scan_regions_min_distance[region] = get_minimum_distance(region_distances)
+
+
+        scan_regions_min_distance_size = len(self.scan_regions_min_distance)
+
+
+        regions_msg_step = int(all_distances_size / scan_regions_min_distance_size)
+
+        self.scan_regions_min_distance["right"] = update_region(
+            all_distances[0:regions_msg_step])
+        self.scan_regions_min_distance["front"] = update_region(
+            all_distances[regions_msg_step+1:2*regions_msg_step])
+        self.scan_regions_min_distance["left"] = update_region(
+            all_distances[regions_msg_step + 1:2 * regions_msg_step])
+
+class Robot_state_machine:
+    def __init__(self):
+        self.current_state = 0
+
 pub_ = None
-regions_ = {
-    'right': 0,
-    'fright': 0,
-    'front': 0,
-    'fleft': 0,
-    'left': 0,
-}
 state_ = 0
 state_dict_ = {
     0: 'find the wall',
@@ -26,14 +73,15 @@ state_dict_ = {
 
 def clbk_laser(msg):
     global regions_
-    regions_ = {
-        'right':  min(min(msg.ranges[0:143]), 10),
-        'fright': min(min(msg.ranges[144:287]), 10),
-        'front':  min(min(msg.ranges[288:431]), 10),
-        'fleft':  min(min(msg.ranges[432:575]), 10),
-        'left':   min(min(msg.ranges[576:713]), 10),
-    }
+    msg_ranges_size = len(msg.ranges)
+    regions_msg_step = int(msg_ranges_size/3)
 
+    regions_ = {
+        'fright': compare_values(regions_['fright'],min(min(msg.ranges[0:regions_msg_step]), 10)),
+        'front':  compare_values(regions_['front'],min(min(msg.ranges[regions_msg_step+1:2*regions_msg_step]), 10)),
+        'fleft':  compare_values(regions_['fleft'],min(min(msg.ranges[2*regions_msg_step+1:3*regions_msg_step]), 10)),
+    }
+    print("Regions: {}".format(regions_))
     take_action()
 
 
@@ -106,6 +154,8 @@ def follow_the_wall():
 
 
 def main():
+    max_distance = 10
+    robot_regions = Robot_regions(max_distance)
     global pub_
 
     rospy.init_node('reading_laser')
