@@ -85,7 +85,12 @@ RUN apt-get update -y && \
     apt-get install ros-kinetic-openni-launch -y && \
     apt-get install ros-kinetic-teleop-twist-keyboard -y && \
     apt-get install ros-kinetic-pointcloud-to-laserscan -y && \
-    apt-get install ros-kinetic-slam-gmapping -y
+    apt-get install ros-kinetic-slam-gmapping -y && \
+    apt-get install mercurial -y
+
+#Download Gazebo Files
+RUN mkdir -p ~/.gazebo && \
+    hg clone https://bitbucket.org/osrf/gazebo_models ~/.gazebo/models
 
 #Get local catkin packages
 COPY files/ /root/

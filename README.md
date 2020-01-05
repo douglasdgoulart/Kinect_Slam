@@ -6,12 +6,21 @@ To help run dependencies and packages a docker has been created.
 
 This project were develop to run into Ubunto OS.
 
-## Docker
-### Install
+## Requirements
+### Docker
 To install the docker into your machine follow this [link](https://runnable.com/docker/install-docker-on-linux).
 
 PS: Don't forget to run Docker Intall tutorial "The Docker Group" section.
 
+### Xterm
+To install xterm follow this:
+
+```
+sudo apt-get update -y
+sudo apt-get install -y xterm
+```
+
+## Running
 ### Build
 To build the docker run:
 

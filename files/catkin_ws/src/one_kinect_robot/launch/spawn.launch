@@ -2,7 +2,7 @@
 <launch>
     <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find one_kinect_robot)/urdf/kinect_robot.xacro'"/>
 
-    <arg name="x" default="0"/>
+    <arg name="x" default="-8"/>
     <arg name="y" default="0"/>
     <arg name="z" default="0.5"/>
 

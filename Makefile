@@ -13,6 +13,8 @@ RANDOM := $(shell bash -c 'echo $$RANDOM')
 
 DOCKER_COMMAND:= ""
 
+ALL_DOCKERS := $(shell bash -c 'echo $$(docker ps -q)')
+
 docker-build:
 	docker network create foo || echo "Network already exists"
 	docker build --file Dockerfile --tag $(DOCKER_TAG) .
@@ -70,7 +72,7 @@ docker-gazebo-run:
                $(DOCKER-PARAMS) \
                --name gazebo_dock \
                --env ROS_HOSTNAME=gazebo_dock \
-               --cpus=1 \
+               --cpus=0.5 \
                $(ROS_MATER_HTTP) \
                $(DOCKER_TAG) \
                roslaunch --wait gazebo_ros willowgarage_world.launch pause:=false
@@ -85,5 +87,6 @@ docker-keyboard-run:
                $(DOCKER_TAG) \
                rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 
-docker-pull-catkin_ws:
-    docker cp files/ $(DOCKER_NAME):/root/ 
+docker-kill-all:
+	docker kill $(ALL_DOCKERS)
+ 
